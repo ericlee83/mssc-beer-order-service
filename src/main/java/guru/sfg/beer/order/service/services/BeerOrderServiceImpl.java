@@ -22,6 +22,7 @@ import guru.sfg.beer.order.service.domain.Customer;
 import guru.sfg.beer.order.service.domain.OrderStatusEnum;
 import guru.sfg.beer.order.service.repositories.BeerOrderRepository;
 import guru.sfg.beer.order.service.repositories.CustomerRepository;
+import guru.sfg.beer.order.service.services.beer.BeerService;
 import guru.sfg.beer.order.service.web.mappers.BeerOrderMapper;
 import guru.sfg.beer.order.service.web.model.BeerOrderDto;
 import guru.sfg.beer.order.service.web.model.BeerOrderPagedList;
@@ -45,6 +46,7 @@ public class BeerOrderServiceImpl implements BeerOrderService {
     private final CustomerRepository customerRepository;
     private final BeerOrderMapper beerOrderMapper;
     private final ApplicationEventPublisher publisher;
+
 
     public BeerOrderServiceImpl(BeerOrderRepository beerOrderRepository,
                                 CustomerRepository customerRepository,
