@@ -1,4 +1,4 @@
-package guru.sfg.beer.order.service.domain;
+package com.springframework.brewery.model.events;
 
 public enum OrderEventEnum {
     VALIDATE_ORDER, VALIDATION_PASSED, VALIDATION_FAILED,

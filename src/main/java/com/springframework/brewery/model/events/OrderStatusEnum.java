@@ -15,7 +15,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package guru.sfg.beer.order.service.domain;
+package com.springframework.brewery.model.events;
 
 public enum  OrderStatusEnum {
     NEW,VALIDATED, VALIDATION_EXCEPTION,ALLOCATED,ALLOCATION_EXCEPTION,

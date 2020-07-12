@@ -7,15 +7,14 @@ guru/sfg/beer/order/service/repositories/CustomerRepository.class
 guru/sfg/beer/order/service/domain/BeerOrder$BeerOrderBuilder.class
 guru/sfg/beer/order/service/services/BeerOrderService.class
 guru/sfg/beer/order/service/web/mappers/BeerOrderLineMapperImpl.class
-com/springframework/brewery/model/OrderStatusEnum.class
 guru/sfg/beer/order/service/services/beer/BeerService.class
 guru/sfg/beer/order/service/web/mappers/BeerOrderLineMapperImpl_.class
 com/springframework/brewery/model/beer/BeerStyleEnum.class
-guru/sfg/beer/order/service/domain/OrderEventEnum.class
 com/springframework/brewery/model/BeerOrderDto$BeerOrderDtoBuilder.class
-com/springframework/brewery/model/BaseItem.class
 guru/sfg/beer/order/service/web/mappers/BeerOrderLineMapper.class
 guru/sfg/beer/order/service/services/BeerOrderServiceImpl.class
+guru/sfg/beer/order/service/services/BeerOrderManagerImpl.class
+guru/sfg/beer/order/service/services/BeerOrderManager.class
 com/springframework/brewery/model/beer/BeerDto$BeerDtoBuilder.class
 guru/sfg/beer/order/service/repositories/BeerOrderLineRepository.class
 guru/sfg/beer/order/service/config/TaskConfig.class
@@ -24,12 +23,12 @@ guru/sfg/beer/order/service/services/TastingRoomService.class
 com/springframework/brewery/model/BeerOrderPagedList.class
 guru/sfg/beer/order/service/web/mappers/BeerOrderLineMapperDecorator.class
 guru/sfg/beer/order/service/web/controllers/BeerOrderController.class
-guru/sfg/beer/order/service/domain/OrderStatusEnum.class
 guru/sfg/beer/order/service/services/beer/BeerServiceRestTemplateImpl.class
 com/springframework/brewery/model/BeerOrderDto.class
 com/springframework/brewery/model/CustomerDto.class
 guru/sfg/beer/order/service/BeerOrderServiceApplication.class
 guru/sfg/beer/order/service/domain/Customer$CustomerBuilder.class
+com/springframework/brewery/model/events/OrderStatusEnum.class
 guru/sfg/beer/order/service/domain/BeerOrderLine$BeerOrderLineBuilder.class
 guru/sfg/beer/order/service/domain/BeerOrderLine.class
 guru/sfg/beer/order/service/bootstrap/BeerOrderBootStrap.class
@@ -41,4 +40,5 @@ com/springframework/brewery/model/beer/BeerDto.class
 guru/sfg/beer/order/service/web/mappers/BeerOrderMapperImpl.class
 com/springframework/brewery/model/BeerOrderLineDto$BeerOrderLineDtoBuilder.class
 guru/sfg/beer/order/service/web/mappers/DateMapper.class
+com/springframework/brewery/model/events/OrderEventEnum.class
 guru/sfg/beer/order/service/web/mappers/BeerOrderMapper.class

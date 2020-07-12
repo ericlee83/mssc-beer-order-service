@@ -16,6 +16,7 @@
  */
 package guru.sfg.beer.order.service.domain;
 
+import com.springframework.brewery.model.events.OrderStatusEnum;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

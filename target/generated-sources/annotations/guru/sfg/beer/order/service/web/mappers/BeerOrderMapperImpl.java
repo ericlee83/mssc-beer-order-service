@@ -3,11 +3,11 @@ package guru.sfg.beer.order.service.web.mappers;
 import com.springframework.brewery.model.BeerOrderDto;
 import com.springframework.brewery.model.BeerOrderDto.BeerOrderDtoBuilder;
 import com.springframework.brewery.model.BeerOrderLineDto;
+import com.springframework.brewery.model.events.OrderStatusEnum;
 import guru.sfg.beer.order.service.domain.BeerOrder;
 import guru.sfg.beer.order.service.domain.BeerOrder.BeerOrderBuilder;
 import guru.sfg.beer.order.service.domain.BeerOrderLine;
 import guru.sfg.beer.order.service.domain.Customer;
-import guru.sfg.beer.order.service.domain.OrderStatusEnum;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-07-12T14:56:57+1000",
+    date = "2020-07-12T15:13:07+1000",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.7 (AdoptOpenJDK)"
 )
 @Component
