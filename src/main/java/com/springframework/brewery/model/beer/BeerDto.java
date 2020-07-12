@@ -1,4 +1,4 @@
-package guru.sfg.beer.order.service.web.model.beer;
+package com.springframework.brewery.model.beer;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;

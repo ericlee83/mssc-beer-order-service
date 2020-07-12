@@ -2,11 +2,10 @@ package guru.sfg.beer.order.service.web.mappers;
 
 import guru.sfg.beer.order.service.domain.BeerOrderLine;
 import guru.sfg.beer.order.service.services.beer.BeerService;
-import guru.sfg.beer.order.service.web.model.BeerOrderLineDto;
-import guru.sfg.beer.order.service.web.model.beer.BeerDto;
+import com.springframework.brewery.model.BeerOrderLineDto;
+import com.springframework.brewery.model.beer.BeerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 public abstract class BeerOrderLineMapperDecorator implements BeerOrderLineMapper {
