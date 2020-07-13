@@ -1,3 +1,4 @@
+/Users/eric-lee-83/Documents/workspace-qantas/mssc-beer-order-service/src/main/java/guru/sfg/beer/order/service/sm/actions/OrderValidationAction.java
 /Users/eric-lee-83/Documents/workspace-qantas/mssc-beer-order-service/src/main/java/guru/sfg/beer/order/service/services/BeerOrderServiceImpl.java
 /Users/eric-lee-83/Documents/workspace-qantas/mssc-beer-order-service/src/main/java/guru/sfg/beer/order/service/services/TastingRoomService.java
 /Users/eric-lee-83/Documents/workspace-qantas/mssc-beer-order-service/src/main/java/guru/sfg/beer/order/service/services/beer/BeerService.java
@@ -23,6 +24,8 @@
 /Users/eric-lee-83/Documents/workspace-qantas/mssc-beer-order-service/src/main/java/guru/sfg/beer/order/service/services/BeerOrderService.java
 /Users/eric-lee-83/Documents/workspace-qantas/mssc-beer-order-service/src/main/java/com/springframework/brewery/model/events/OrderEventEnum.java
 /Users/eric-lee-83/Documents/workspace-qantas/mssc-beer-order-service/src/main/java/guru/sfg/beer/order/service/config/TaskConfig.java
+/Users/eric-lee-83/Documents/workspace-qantas/mssc-beer-order-service/src/main/java/com/springframework/brewery/model/events/ValidateOrderRequest.java
+/Users/eric-lee-83/Documents/workspace-qantas/mssc-beer-order-service/src/main/java/guru/sfg/beer/order/service/sm/BeerOrderStateChangeIntercepter.java
 /Users/eric-lee-83/Documents/workspace-qantas/mssc-beer-order-service/src/main/java/guru/sfg/beer/order/service/bootstrap/BeerOrderBootStrap.java
 /Users/eric-lee-83/Documents/workspace-qantas/mssc-beer-order-service/src/main/java/guru/sfg/beer/order/service/BeerOrderServiceApplication.java
 /Users/eric-lee-83/Documents/workspace-qantas/mssc-beer-order-service/src/main/java/guru/sfg/beer/order/service/repositories/BeerOrderLineRepository.java
