@@ -1,5 +1,6 @@
 package guru.sfg.beer.order.service.services;
 
+import com.springframework.brewery.model.BeerOrderDto;
 import com.springframework.brewery.model.events.OrderEventEnum;
 import com.springframework.brewery.model.events.OrderStatusEnum;
 import guru.sfg.beer.order.service.domain.BeerOrder;
@@ -46,6 +47,38 @@ public class BeerOrderManagerImpl implements BeerOrderManager {
         }else{
             sendBeerOrderEvent(beerOrder,OrderEventEnum.VALIDATION_FAILED);
         }
+    }
+
+    @Override
+    public void beerOrderAllocationPassed(BeerOrderDto beerOrderDto) {
+        BeerOrder beerOrder = beerOrderRepository.getOne(beerOrderDto.getId());
+        sendBeerOrderEvent(beerOrder,OrderEventEnum.ALLOCATION_SUCCESS);
+        updateAllocatedQty(beerOrderDto,beerOrder);
+    }
+
+    private void updateAllocatedQty(BeerOrderDto beerOrderDto, BeerOrder beerOrder) {
+        BeerOrder allocatedOrder = beerOrderRepository.getOne(beerOrderDto.getId());
+        allocatedOrder.getBeerOrderLines().forEach(orderLine->{
+            beerOrderDto.getBeerOrderLines().forEach(beerOrderLineDto -> {
+                if(orderLine.getId().equals(beerOrderDto.getId())){
+                    orderLine.setQuantityAllocated(beerOrderLineDto.getQuantityAllocated());
+                }
+            });
+        });
+        beerOrderRepository.saveAndFlush(beerOrder);
+    }
+
+    @Override
+    public void beerOrderAllocationPendingInventory(BeerOrderDto beerOrderDto) {
+        BeerOrder beerOrder = beerOrderRepository.getOne(beerOrderDto.getId());
+        sendBeerOrderEvent(beerOrder,OrderEventEnum.ALLOCATION_NO_INVENTORY);
+        updateAllocatedQty(beerOrderDto,beerOrder);
+    }
+
+    @Override
+    public void beerOrderAllocationFailed(BeerOrderDto beerOrderDto) {
+        BeerOrder beerOrder = beerOrderRepository.getOne(beerOrderDto.getId());
+        sendBeerOrderEvent(beerOrder,OrderEventEnum.ALLOCATION_FAILED);
     }
 
     private void sendBeerOrderEvent(BeerOrder beerOrder, OrderEventEnum eventEnum){

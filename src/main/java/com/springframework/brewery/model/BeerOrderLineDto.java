@@ -53,5 +53,6 @@ public class BeerOrderLineDto{
     private UUID beerId;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private BigDecimal price;
+    private Integer quantityAllocated;
     private Integer orderQuantity = 0;
 }
