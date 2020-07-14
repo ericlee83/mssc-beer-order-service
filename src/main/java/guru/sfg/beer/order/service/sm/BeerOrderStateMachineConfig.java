@@ -36,9 +36,9 @@ public class BeerOrderStateMachineConfig extends StateMachineConfigurerAdapter<O
         transitions.withExternal().source(OrderStatusEnum.NEW).target(OrderStatusEnum.VALIDATION_PENDING).event(OrderEventEnum.VALIDATE_ORDER)
                 .action(orderValidationAction)
                 .and()
-                .withExternal().source(OrderStatusEnum.NEW).target(OrderStatusEnum.VALIDATED).event(OrderEventEnum.VALIDATION_PASSED)
+                .withExternal().source(OrderStatusEnum.VALIDATION_PENDING).target(OrderStatusEnum.VALIDATED).event(OrderEventEnum.VALIDATION_PASSED)
                 .and()
-                .withExternal().source(OrderStatusEnum.NEW).target(OrderStatusEnum.VALIDATION_EXCEPTION).event(OrderEventEnum.VALIDATION_FAILED)
+                .withExternal().source(OrderStatusEnum.VALIDATION_PENDING).target(OrderStatusEnum.VALIDATION_EXCEPTION).event(OrderEventEnum.VALIDATION_FAILED)
                 .and()
                 .withExternal().source(OrderStatusEnum.VALIDATED).target(OrderStatusEnum.ALLOCATION_PENDING).event(OrderEventEnum.ALLOCATE_ORDER)
                 .action(allocateOrderAction)
@@ -47,6 +47,8 @@ public class BeerOrderStateMachineConfig extends StateMachineConfigurerAdapter<O
                 .and()
                 .withExternal().source(OrderStatusEnum.ALLOCATION_PENDING).target(OrderStatusEnum.VALIDATION_EXCEPTION).event(OrderEventEnum.ALLOCATION_FAILED)
                 .and()
-                .withExternal().source(OrderStatusEnum.ALLOCATION_PENDING).target(OrderStatusEnum.PENDING_INVENTORY).event(OrderEventEnum.ALLOCATION_NO_INVENTORY);
+                .withExternal().source(OrderStatusEnum.ALLOCATION_PENDING).target(OrderStatusEnum.PENDING_INVENTORY).event(OrderEventEnum.ALLOCATION_NO_INVENTORY)
+                .and()
+                .withExternal().source(OrderStatusEnum.VALIDATED).target(OrderStatusEnum.PICKED_UP).event(OrderEventEnum.ORDER_PICKED_UP);
     }
 }
