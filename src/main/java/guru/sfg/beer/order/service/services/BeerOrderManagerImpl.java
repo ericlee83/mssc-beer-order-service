@@ -16,6 +16,7 @@ import org.springframework.statemachine.support.DefaultStateMachineContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -27,6 +28,7 @@ public class BeerOrderManagerImpl implements BeerOrderManager {
     private final StateMachineFactory<OrderStatusEnum, OrderEventEnum> factory;
     private final BeerOrderRepository beerOrderRepository;
     private final BeerOrderStateChangeIntercepter beerOrderStateChangeIntercepter;
+    private final EntityManager entityManager;
 
     public static final String ORDER_ID_HEADER = "ORDER_ID_HEADER";
 
@@ -43,7 +45,8 @@ public class BeerOrderManagerImpl implements BeerOrderManager {
     @Transactional
     @Override
     public void processValidationResult(UUID beerOrderId, Boolean isValid) {
-        log.debug("Process Validation Result for beerOrderId: " + beerOrderId + " Valid? " + isValid);
+        log.error("Process Validation Result for beerOrderId: " + beerOrderId + " Valid? " + isValid);
+        entityManager.flush();
         Optional<BeerOrder> beerOrderOp = beerOrderRepository.findById(beerOrderId);
         beerOrderOp.ifPresentOrElse(beerOrder -> {
             if(isValid){
@@ -106,7 +109,14 @@ public class BeerOrderManagerImpl implements BeerOrderManager {
         Optional<BeerOrder> beerOrderOptional = beerOrderRepository.findById(id);
         beerOrderOptional.ifPresentOrElse(beerOrder -> {
             sendBeerOrderEvent(beerOrder,OrderEventEnum.ORDER_PICKED_UP);
-        },()->log.error("Order not found [allocation fail] id: "+id));
+        },()->log.error("Order not found [pickup] id: "+id));
+    }
+
+    @Override
+    public void cancelOrder(UUID id) {
+        beerOrderRepository.findById(id).ifPresentOrElse(beerOrder -> {
+            sendBeerOrderEvent(beerOrder,OrderEventEnum.CANCEL_ORDER);
+        },()->log.error("Order not found [cancel order] id: "+id));
     }
 
     private void sendBeerOrderEvent(BeerOrder beerOrder, OrderEventEnum eventEnum){
